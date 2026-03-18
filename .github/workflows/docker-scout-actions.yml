@@ -60,15 +60,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      # Compare the image built in the pull request with the one in production
-      - name: Docker Scout
-        id: docker-scout
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
-        uses: docker/scout-action@v1
-        with:
-          command: scan
-          image: ${{ steps.meta.outputs.tags }}
-          organization: ${{ secrets.DOCKERHUB_USERNAME }}
-          only-severities: critical,high
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          

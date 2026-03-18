@@ -67,10 +67,8 @@ jobs:
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         uses: docker/scout-action@v1
         with:
-          command: compare
+          command: scan
           image: ${{ steps.meta.outputs.tags }}
-          organization: ${{ secrets.DOCKERHUB_USERNAME }}  # required!
-          to-env: production
-          ignore-unchanged: true
+          organization: ${{ secrets.DOCKERHUB_USERNAME }}
           only-severities: critical,high
           github-token: ${{ secrets.GITHUB_TOKEN }}

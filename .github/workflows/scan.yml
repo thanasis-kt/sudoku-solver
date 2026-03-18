@@ -56,11 +56,3 @@ jobs:
           output: sbom_scout.spdx.json
           format: spdx
 
-      - name: Upload SBOM file as an artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: sbom_scout.spdx.json
-          path: sbom_scout.spdx.json
-        
-      - name: SBOM upload
-        uses: advanced-security/spdx-dependency-submission-action@v0.1.1

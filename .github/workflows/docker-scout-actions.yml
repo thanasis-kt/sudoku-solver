@@ -69,6 +69,7 @@ jobs:
         with:
           command: compare
           image: ${{ steps.meta.outputs.tags }}
+          organization: ${{ secrets.DOCKERHUB_USERNAME }}  # required!
           to-env: production
           ignore-unchanged: true
           only-severities: critical,high

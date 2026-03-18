@@ -64,7 +64,7 @@ jobs:
       # Compare the image built in the pull request with the one in production
       - name: Docker Scout
         id: docker-scout
-        if: ${{ github.event_name == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         uses: docker/scout-action@v1
         with:
           command: compare

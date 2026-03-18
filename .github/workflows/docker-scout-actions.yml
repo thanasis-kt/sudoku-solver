@@ -12,7 +12,7 @@ env:
   # Hostname of your registry
   REGISTRY: docker.io
   # Image repository, without hostname and tag
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository_name }}
   SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
           labels: |
             org.opencontainers.image.revision=${{ env.SHA }}
           tags: |

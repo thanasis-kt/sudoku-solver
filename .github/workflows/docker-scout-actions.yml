@@ -12,7 +12,7 @@ env:
   # Hostname of your registry
   REGISTRY: docker.io
   # Image repository, without hostname and tag
-  IMAGE_NAME: ${{ github.repository_name }}
+  IMAGE_NAME: sudoku-solver
   SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
 
 jobs:
